@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trick Talk - Innovative Minds | Creative Solutions</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --background-light: #ecf0f1;
+            --background-dark: #f1f3f4;
+            --text-color: #333;
+            --font-family: 'Poppins', sans-serif;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --border-radius: 8px;
+        }
+
+        body {
+            font-family: var(--font-family);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-light);
+            scroll-behavior: smooth;
+        }
+
+        /* Header */
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background: #fff;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        .title-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .site-title {
+            margin: 0;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .tagline {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #777;
+            font-weight: 300;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Main Sections */
+        .section {
+            padding: 4rem 2rem;
+            min-height: 50vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+        }
+
+        #about {
+            background: linear-gradient(135deg, var(--background-light), #dcdde1);
+        }
+
+        /* Team Section */
+        #team {
+            background-color: #fff;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .team-card {
+            background: var(--background-light);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: var(--shadow);
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .team-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+        }
+
+        .team-card h3 {
+            margin-top: 1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        /* Visits Section */
+        #visits {
+            background-color: var(--background-dark);
+        }
+
+        .visits-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .visit-entry {
+            background: #fff;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .visit-entry h3 {
+            color: var(--secondary-color);
+        }
+
+        .visit-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 1rem;
+        }
+
+        .gallery-item {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+
+        /* Posters Section */
+        #posters {
+            background-color: #fff;
+        }
+
+        .poster-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .poster-item {
+            width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .poster-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* File View Section */
+        #files {
+            background-color: var(--background-dark);
+            text-align: center;
+        }
+
+        .file-links a {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .file-links a:hover {
+            background-color: #2980b9;
+        }
+        
+        /* Contact Section */
+        #contact {
+            background-color: #fff;
+            text-align: center;
+        }
+        
+        .contact-info {
+            max-width: 600px;
+            margin: auto;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-info a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Lightbox Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+
+        .modal-content, .close-btn {
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+
+        @keyframes zoom {
+            from {transform: scale(0)}
+            to {transform: scale(1)}
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: var(--secondary-color);
+            color: #fff;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+                padding: 1rem;
+            }
+
+            nav ul {
+                gap: 10px;
+                flex-wrap: wrap;
+                justify-content: center;
+                margin-top: 1rem;
+            }
+
+            .site-title {
+                font-size: 1.5rem;
+            }
+
+            .team-grid, .poster-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="sticky-header">
+        <div class="header-container">
+            <div class="logo-area">
+                <img src="logo_new.png" alt="Trick Talk Logo" class="logo">
+                <div class="title-container">
+                    <h1 class="site-title">Trick Talk</h1>
+                    <p class="tagline">Innovative Minds | Creative Solutions</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#visits">Visits</a></li>
+                    <li><a href="#posters">Posters</a></li>
+                    <li><a href="#files">Files</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="about" class="section">
+            <div class="container">
+                <h2>About Us</h2>
+                <p>Trick Talk is a community-driven project focused on fostering creativity and providing innovative solutions to real-world problems. Our mission is to empower individuals through skill-building workshops, collaborative projects, and hands-on community engagement. We believe that creative problem-solving is a vital skill for personal and collective growth.</p>
+            </div>
+        </section>
+
+        <section id="team" class="section">
+            <div class="container">
+                <h2>Our Team</h2>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <img src="harshal_new.png" alt="Team Member 1" class="team-photo">
+                        <h3>Harshal Pagariya</h3>
+                        <p>Technical helper</p>
+                    </div>
+                    <div class="team-card">
+                        <img src="aarya_new.png" alt="Team Member 2" class="team-photo">
+                        <h3>Aarya Pagar</h3>
+                        <p>Project Head</p>
+                    </div>
+                    <div class="team-card">
+                        <img src="photo_arnav.png" alt="Team Member 3" class="team-photo">
+                        <h3>Arnav Pasricha</h3>
+                        <p>Technical Helper</p>
+                    </div>
+                    <div class="team-card">
+                        <img src="anagah_new.png" alt="Team Member 4" class="team-photo">
+                        <h3>Anagha Nikam</h3>
+                        <p>Poster Designer</p>
+                    </div>
+                    <div class="team-card">
+                        <img src="riya_new.png" alt="Team Member 5" class="team-photo">
+                        <h3>Riya Nagre</h3>
+                        <p>Technical Advisor</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="visits" class="section">
+            <div class="container">
+                <h2>Community Visits</h2>
+                <div class="visits-container">
+                    <div class="visit-entry">
+                        <h3>Visit 1: Park Cleanup Initiative</h3>
+                        <p class="visit-description">A successful community effort to restore local green spaces. We focused on litter removal and planting new shrubs to beautify the area for everyone.</p>
+                        <div class="visit-gallery">
+                            <img src="first_new.jpg" alt="Park Cleanup Photo 1" class="gallery-item">
+                            <img src="visit_new.jpg" alt="Park Cleanup Photo 2" class="gallery-item">
+                            <img src="first_new2.jpg" alt="Park Cleanup Photo 3" class="gallery-item">
+                        </div>
+                    </div>
+                    <div class="visit-entry">
+                        <h3>Visit 2: Senior Citizen Workshop</h3>
+                        <p class="visit-description">Engaging with the senior community through a workshop on digital literacy. We helped them learn new skills for staying connected with family and friends.</p>
+                        <div class="visit-gallery">
+                            <img src="second1_visit.jpg" alt="Senior Workshop Photo" class="gallery-item">
+                             <img src="second3_visit.jpg" alt="Senior Workshop Photo" class="gallery-item">
+                            <video controls class="gallery-item">
+                                <source src="second5_visit.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                    <div class="visit-entry">
+                        <h3>Visit 3: Senior Citizen Workshop</h3>
+                        <p class="visit-description">Engaging with the senior community through a workshop on digital literacy. We helped them learn new skills for staying connected with family and friends.</p>
+                        <div class="visit-gallery">
+                            <img src="fourthvisit_new.jpg" alt="Senior Workshop Photo" class="gallery-item">
+                            <img src="fourth_visit2.jpg" alt="Senior Workshop Photo" class="gallery-item">
+                            <img src="third_new22.jpg" alt="Senior Workshop Photo" class="gallery-item">   
+                        </div>
+                    </div>
+                    <div class="visit-entry">
+                        <h3>Visit 4: School Supply Drive</h3>
+                        <p class="visit-description">Organizing a drive to provide essential school supplies to students in need. This project ensured that every child had the tools to succeed in their education.</p>
+                        <div class="visit-gallery">
+                            <img src="fourth2_visit.jpg" alt="School Drive Photo" class="gallery-item">
+                            <img src="fourth3_visit.jpg" alt="School Drive Photo" class="gallery-item">
+                            <img src="fourth_neww2.jpg" alt="School Drive Photo" class="gallery-item">
+                            <video controls class="gallery-item">
+                                <source src="third_new6.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                       <div class="visit-entry">
+                        <h3>Visit 5: Senior Citizen Workshop</h3>
+                        <p class="visit-description">Engaging with the senior community through a workshop on digital literacy. We helped them learn new skills for staying connected with family and friends.</p>
+                        <div class="visit-gallery">
+                            <img src="fifth_visit1.jpg" alt="Senior Workshop Photo" class="gallery-item">
+                            <img src="fifth_visit2.jpg" alt="Senior Workshop Photo" class="gallery-item">
+                            <img src="fifth_visit3.jpg" alt="Senior Workshop Photo" class="gallery-item">
+                            <video controls class="gallery-item">
+                                <source src="third_new6.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="posters" class="section">
+            <div class="container">
+                <h2>Project Posters</h2>
+                <div class="poster-grid">
+                    <img src="poster1_cep.jpg" alt="Project Poster 1" class="poster-item">
+                    <img src="poster2.jpg" alt="Project Poster 2" class="poster-item">
+                </div>
+            </div>
+        </section>
+
+        <section id="files" class="section">
+            <div class="container">
+                <h2>Project Documents</h2>
+                <div class="file-links">
+                    <a href="Scholarship_Test-1.pdf" target="_blank">View Project PDF</a>
+                    <a href="cep.xlsx" target="_blank">View Excel Sheet</a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact" class="section">
+            <div class="container">
+                <h2>Contact Us</h2>
+                <div class="contact-info">
+                    <p>For inquiries, please contact our project lead:</p>
+                    <p><strong>Name:</strong> Trick talk</p>
+                    <p><strong>Email:</strong> <a href="mailto:tricktalk@gmail.com">contact@tricketalk.com</a></p>
+                    <p><strong>Phone:</strong> +91 9119549440</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Trick Talk. All Rights Reserved.</p>
+    </footer>
+
+    <div id="lightbox-modal" class="modal">
+        <span class="close-btn">&times;</span>
+        <img class="modal-content" id="modal-image">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Smooth scroll for navigation
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Lightbox Functionality
+            const modal = document.getElementById('lightbox-modal');
+            const modalImg = document.getElementById('modal-image');
+            const closeBtn = document.querySelector('.close-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            galleryItems.forEach(item => {
+                if (item.tagName === 'IMG') {
+                    item.addEventListener('click', function() {
+                        modal.style.display = 'block';
+                        modalImg.src = this.src;
+                    });
+                }
+            });
+
+            if (closeBtn) {
+                closeBtn.addEventListener('click', () => {
+                    modal.style.display = 'none';
+                });
+            }
+
+            // Close modal when clicking outside
+            window.addEventListener('click', (event) => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
